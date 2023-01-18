@@ -1,0 +1,21 @@
+{
+  "name": "jsexerciciosbackend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.3",
+    "nodemon": "^2.0.20",
+    "rest": "^2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon ./backend/api.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
