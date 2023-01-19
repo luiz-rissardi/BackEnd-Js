@@ -5,6 +5,7 @@ import {RoutesCall} from "./backend/routes/Router.js"
 import { Routers } from "./backend/routes/userRoutes.js"
 import { UserController } from "./backend/controler/UserController.js"
 import { UserModel } from "./backend/model/userModel.js"
+import dotenv from "dotenv"
 
 const ROUTERS = new Routers(new UserController(UserModel),Router()).createRoutes()
 
@@ -12,6 +13,7 @@ class App {
     Banco;
     constructor(banco, express, cors, routes, json) {
         try {
+            dotenv.config()
             this.Banco = banco
             express.use(cors())
             express.use(json())
