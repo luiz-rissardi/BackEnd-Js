@@ -18,6 +18,7 @@ class App {
             express.use(cors())
             express.use(json())
             express.use("/api", routes.getRotas())
+            console.log("conectando...")
             express.listen(3000,() => {
                 console.log("conectado com sucesso")
                 this.conectarBanco()
@@ -29,7 +30,6 @@ class App {
     }
     conectarBanco() {
        try {
-        console.log("conectando...")
         this.Banco.Connect()
        } catch (error) {
         console.log("erro ao conectar no banco")
