@@ -22,7 +22,6 @@ class UserController{
         }
     }
     async getUsers(req,res){
-        console.log("pegando dados")
         try {
             const response = await this.model.find()
             res.json({

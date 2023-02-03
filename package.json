@@ -2,7 +2,7 @@
   "name": "jsexerciciosbackend",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "type": "module",
   "dependencies": {
     "cors": "^2.8.5",
@@ -13,7 +13,7 @@
     "rest": "^2.0.0"
   },
   "scripts": {
-    "start": "node ./app.js",
+    "start": "nodemon ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
