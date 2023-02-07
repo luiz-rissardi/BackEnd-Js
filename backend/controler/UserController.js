@@ -13,7 +13,7 @@ class UserController{
             }
             const response = await this.model.create(user)
             res.json({
-                response,
+                response:this.model,
                 message:"usuario salvo com sucesso!"
             })
         } catch (error) {
