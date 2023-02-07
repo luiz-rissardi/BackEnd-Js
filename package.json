@@ -13,7 +13,7 @@
     "rest": "^2.0.0"
   },
   "scripts": {
-    "start": "nodemon ./index.js",
+    "start": "nodemon index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

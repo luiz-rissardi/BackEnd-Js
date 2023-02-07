@@ -17,6 +17,9 @@ class App {
             this.Banco = banco
             express.use(cors())
             express.use(json())
+            express.get("/",(req,res)=>{
+                res.send("ola mundo")
+            })
             express.use("/api", routes.getRotas())
             console.log("conectando...")
             express.listen(3000,() => {
