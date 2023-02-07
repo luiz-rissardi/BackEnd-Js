@@ -11,9 +11,8 @@ class UserController{
                 sobrenome:req.body.sobrenome,
                 idade:req.body.idade
             }
-            const response = await this.model.create(user)
+            //const response = await this.model.create(user)
             res.json({
-                response:this.model,
                 message:"usuario salvo com sucesso!"
             })
         } catch (error) {
@@ -23,9 +22,8 @@ class UserController{
     }
     async getUsers(req,res){
         try {
-            const response = await this.model.find()
+            //const response = await this.model.find()
             res.json({
-                response,
                 message:"dados pegos com sucesso"
             })
         } catch (error) {
