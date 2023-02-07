@@ -22,12 +22,17 @@ class UserController{
     }
     async getUsers(req,res){
         try {
-            //const response = await this.model.find()
+            const response = await this.model.find()
             res.json({
-                message:"dados pegos com sucesso"
+                message:"dados pegos com sucesso",
+                response,
             })
         } catch (error) {
-            
+            const response = this.model
+            res.json({
+                message:"dados pegos com sucesso",
+                response,
+            })
         }
     }
 }
