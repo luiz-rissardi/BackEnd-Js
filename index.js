@@ -22,7 +22,7 @@ class App {
             })
             express.use("/api", routes.getRotas())
             console.log("conectando...")
-            express.listen(3000,() => {
+            express.listen(process.env.PORT || 3000,() => {
                 console.log("conectado com sucesso")
                 this.conectarBanco()
             })
