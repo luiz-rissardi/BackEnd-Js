@@ -6,7 +6,7 @@ class DataBase{
     }
     async Connect(){
         try {
-            await connect("mongodb+srv://Rissardi:UskF85KfCsXCsuXp@cluster0.oxqcfzm.mongodb.net/?retryWrites=true&w=majority")
+            await connect(process.env.MONGODB_URI)
             console.log("banco conectado")
         } catch (error) {
             console.log(error)
