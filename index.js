@@ -1,7 +1,6 @@
-import express, { Router, json } from "express"
+import express, { json } from "express"
 import cors from "cors"
 import dotenv from "dotenv"
-import http from "http"
 
 import { DataBase } from "./backend/db/dataBase.js"
 import { Routers } from "./backend/routes/userRoutes.js"
@@ -23,12 +22,13 @@ class App {
     initApp(){
         try {
             this.Banco.Connect()
-            const server = http.createServer(Express)
             Express.set("trust proxy",1)
             Express.use(cors())
             Express.use(json())
             Express.use("/api",middleareSecurity,this.Routes)
-            server.listen(process.env.PORT || 3000)
+            Express.listen(process.env.PORT || 3000,()=>{
+               console.log("servidor rodando") 
+            })
         } catch (error) {
             console.log(error)
         }
