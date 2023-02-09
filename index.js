@@ -52,7 +52,7 @@ import express from "express";
 const app = express()
 const routers = express.Router()
 
-app.use("/",(req,res)=>{
+app.get("/",(req,res)=>{
     res.json({
         MessageChannel:"funcionando"
     })
