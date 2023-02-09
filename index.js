@@ -1,4 +1,4 @@
-import express, { json } from "express"
+/*import express, { json } from "express"
 import cors from "cors"
 import dotenv from "dotenv"
 
@@ -45,5 +45,29 @@ function init() {
 }
 
 init()
+*/
+
+import express from "express";
+
+const app = express()
+const routers = express.Router()
+
+app.use("/",(req,res)=>{
+    res.json({
+        MessageChannel:"funcionando"
+    })
+})
+
+routers.route("/service").get((req,res)=>{
+    res.json({
+        message:"serviços ativados"
+    })
+})
 
 
+app.use("/api",routers)
+
+
+app.listen(process.env.PORT || 3000,()=>{
+    console.log("fucnionou")
+})
