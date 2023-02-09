@@ -21,12 +21,17 @@ class App {
 
     initApp(){
         try {
-            this.Banco.Connect()
+            //this.Banco.Connect()
             Express.use(cors())
             Express.use(json())
             Express.use("/api",middleareSecurity,this.Routes)
             Express.listen(process.env.PORT || 3000,()=>{
                console.log("servidor rodando") 
+            })
+            Express.get("/",(req,res)=>{
+                res.json({
+                    message:"app rodfando"
+                })
             })
         } catch (error) {
             console.log(error)
