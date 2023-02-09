@@ -10,11 +10,10 @@
     "express": "^4.18.2",
     "express-rate-limit": "^6.7.0",
     "mongoose": "^6.8.3",
-    "nodemon": "^2.0.20",
     "rest": "^2.0.0"
   },
   "scripts": {
-    "start": "nodemon index",
+    "start": "node index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
