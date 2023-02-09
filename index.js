@@ -7,6 +7,7 @@ import { DataBase } from "./backend/db/dataBase.js"
 import { Routers } from "./backend/routes/userRoutes.js"
 import { UserController } from "./backend/controler/UserController.js"
 import { UserModel } from "./backend/model/userModel.js"
+import { middleareSecurity } from "./config.js"
 
 const Express = express();
 dotenv.config();
@@ -23,9 +24,10 @@ class App {
         try {
             this.Banco.Connect()
             const server = http.createServer(Express)
+            Express.set("trust proxy",1)
             Express.use(cors())
             Express.use(json())
-            Express.use("/api",this.Routes)
+            Express.use("/api",middleareSecurity,this.Routes)
             server.listen(process.env.PORT || 3000)
         } catch (error) {
             console.log(error)
@@ -39,7 +41,9 @@ function init() {
     const routes = new Routers(controll)
     const database = new DataBase()
     const app = new App(database, routes.createRoutes())
-    app.initApp()
+    app.initApp();
 }
 
 init()
+
+

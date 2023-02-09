@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { loginLimit, CreateLimit, UpadteLimit } from "../../config.js"
 
 class Routers{
     controller;
@@ -9,16 +10,15 @@ class Routers{
     }
     
     createRoutes(){
-        this.Routes.route("/services")
-        .post((req,res)=>{
+        this.Routes.route("/services").post(CreateLimit,(req,res)=>{
             this.controller.create(req,res)
         })
         
-        this.Routes.route("/services/:id").put((req,res)=>{
+        this.Routes.route("/services/:id").put(UpadteLimit,(req,res)=>{
             this.controller.updateUser(req,res)
         })
         
-        this.Routes.route("/login").post((req,res)=>{
+        this.Routes.route("/login").post(loginLimit,(req,res)=>{
             this.controller.login(req,res)
         })
 

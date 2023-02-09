@@ -1,3 +1,8 @@
-PUT  http://localhost:3000/api/services/63e42e2b7d9bd97fdfe623be
+GET   http://localhost:3000/api/login
 Content-Type: application/json
 
+
+{
+    "email":"umTeter.teste@gamil.com",
+    "password":"teste123s"
+}
