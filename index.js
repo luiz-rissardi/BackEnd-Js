@@ -1,6 +1,7 @@
 import express, { json } from "express"
 import cors from "cors"
 import dotenv from "dotenv"
+import http from "http"
 
 import { DataBase } from "./backend/db/dataBase.js"
 import { Routers } from "./backend/routes/userRoutes.js"
@@ -22,17 +23,11 @@ class App {
     initApp(){
         try {
             this.Banco.Connect()
+            const server = http.createServer(Express)
             Express.use(cors())
             Express.use(json())
             Express.use("/api",middleareSecurity,this.Routes)
-            Express.listen(process.env.PORT || 3000,()=>{
-               console.log("servidor rodando") 
-            })
-            Express.get("/",(req,res)=>{
-                res.json({
-                    message:"app rodfando"
-                })
-            })
+            server.listen(process.env.PORT || 3000)
         } catch (error) {
             console.log(error)
         }
