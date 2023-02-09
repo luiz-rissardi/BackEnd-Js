@@ -8,16 +8,23 @@ class UserShema{
             type:String,
             required:true
         },
-        sobrenome : {
+        email : {
             type:String,
             required:true
         },
-        idade : {
+        password : {
+            type:String,
+            required:true
+        },
+        phone : {
             type:Number,
+            required:true
+        },
+        chats : {
+            type:Array,
             required:true
         }
     })
-
 }
 
 const UserModel = model("user",new UserShema().Shema)

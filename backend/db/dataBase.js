@@ -6,11 +6,9 @@ class DataBase{
     }
     async Connect(){
         try {
-            await connect(process.env.MONGODB_URI)
-            console.log("banco conectado")
+            const data = await connect(process.env.MONGODB_URI)
         } catch (error) {
-            console.log(error)
-            console.log("erro ao conectar no banco")
+            throw "não foi possivel conectar ao banco"
         }
     }
 }
