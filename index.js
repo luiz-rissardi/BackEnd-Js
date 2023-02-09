@@ -21,7 +21,7 @@ class App {
 
     initApp(){
         try {
-            //this.Banco.Connect()
+            this.Banco.Connect()
             Express.use(cors())
             Express.use(json())
             Express.use("/api",middleareSecurity,this.Routes)
