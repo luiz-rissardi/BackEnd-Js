@@ -19,7 +19,7 @@ class UserController {
             const password = req.body.password;
             const email = req.body.email;
             const data = await this.model.find({ email, password })
-            if (data === null) {
+            if (data === undefined) {
                 error400(res,"senha ou email invalidos")
             } else {
                 sucess(res,{
