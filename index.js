@@ -26,7 +26,7 @@ class App {
             const server = http.createServer(Express)
             Express.use(cors())
             Express.use(json())
-            Express.use("/api",this.Routes)
+            Express.use("/api",middleareSecurity,this.Routes)
             server.listen(process.env.PORT || 3000)
         } catch (error) {
             console.log(error)
