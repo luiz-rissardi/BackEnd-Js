@@ -26,6 +26,7 @@ class App {
             const server = http.createServer(Express)
             Express.use(cors())
             Express.use(json())
+            Express.use("trust proxy",1)
             Express.use("/api",middleareSecurity,this.Routes)
             server.listen(process.env.PORT || 3000)
         } catch (error) {
