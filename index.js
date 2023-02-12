@@ -27,7 +27,7 @@ class App {
             Express.use(cors())
             Express.use(json())
             Express.set("trust proxy",1)
-            Express.use("/api",this.Routes)
+            Express.use("/api",middleareSecurity,this.Routes)
             server.listen(process.env.PORT || 3000)
         } catch (error) {
             return "não foi possivel conectar no servidor"
