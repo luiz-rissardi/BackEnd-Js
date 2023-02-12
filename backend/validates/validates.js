@@ -7,6 +7,21 @@
     }
  }
 
+
+function alreadyExists(users){
+    return function(user){
+        let bool = true
+        for(let el of users){
+            if(el.email == user.email && el.phone == user.phone){
+                bool = false
+                break;
+            }
+        }
+        return bool
+    }
+}
+
  export {
-    verifyUser
+    verifyUser,
+    alreadyExists
  }

@@ -26,11 +26,11 @@ class App {
             const server = http.createServer(Express)
             Express.use(cors())
             Express.use(json())
-            Express.set("trust proxy",2)
-            Express.use("/api",middleareSecurity,this.Routes)
+            Express.set("trust proxy",1)
+            Express.use("/api",this.Routes)
             server.listen(process.env.PORT || 3000)
         } catch (error) {
-            console.log(error)
+            return "não foi possivel conectar no servidor"
         }
     }
 }
@@ -45,4 +45,3 @@ function init() {
 }
 
 init()
-
