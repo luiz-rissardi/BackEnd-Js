@@ -10,7 +10,7 @@ class Routers{
     }
     
     createRoutes(){
-        this.Routes.route("/services").post((req,res)=>{
+        this.Routes.route("/services").post(CreateLimit,(req,res)=>{
             this.controller.create(req,res)
         })
         
