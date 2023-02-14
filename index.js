@@ -3,10 +3,10 @@ import cors from "cors"
 import dotenv from "dotenv"
 import http from "http"
 
-import { DataBase } from "./backend/db/dataBase.js"
-import { Routers } from "./backend/routes/userRoutes.js"
-import { UserController } from "./backend/controler/UserController.js"
-import { UserModel } from "./backend/model/userModel.js"
+import { DataBase } from "./src/db/dataBase.js"
+import { Routers } from "./src/routes/userRoutes.js"
+import { UserController } from "./src/controler/UserController.js"
+import { UserModel } from "./src/model/userModel.js"
 import { middleareSecurity } from "./config.js"
 
 const Express = express();
