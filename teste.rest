@@ -1,0 +1,7 @@
+PUT  http://localhost:3000/api/update
+Content-Type: application/json
+
+{
+    "phone":23232323,
+    "email":"luiz@gmail.tercio"
+}

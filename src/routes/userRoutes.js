@@ -13,8 +13,12 @@ class Routers{
         this.Routes.route("/services").post(CreateLimit,(req,res)=>{
             this.controller.create(req,res)
         })
+
+        this.Routes.route("/createChat").post((req,res)=>{
+            this.controller.createChat(req,res)
+        })
         
-        this.Routes.route("/services/:id").put(UpadteLimit,(req,res)=>{
+        this.Routes.route("/update").put(UpadteLimit,(req,res)=>{
             this.controller.updateUser(req,res)
         })
         

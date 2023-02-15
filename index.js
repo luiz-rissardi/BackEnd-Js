@@ -5,7 +5,7 @@ import http from "http"
 
 import { DataBase } from "./src/db/dataBase.js"
 import { Routers } from "./src/routes/userRoutes.js"
-import { UserController } from "./src/controler/UserController.js"
+import { UserController } from "./src/controller/UserController.js"
 import { UserModel } from "./src/model/userModel.js"
 import { middleareSecurity } from "./config.js"
 
