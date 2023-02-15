@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { loginLimit, CreateLimit, UpadteLimit } from "../../config.js"
+import { loginLimit, CreateLimit, UpadteLimit, createChatsLimit } from "../../config.js"
 
 class Routers{
     controller;
@@ -14,7 +14,7 @@ class Routers{
             this.controller.create(req,res)
         })
 
-        this.Routes.route("/createChat").post((req,res)=>{
+        this.Routes.route("/createChat").put(createChatsLimit,(req,res)=>{
             this.controller.createChat(req,res)
         })
         

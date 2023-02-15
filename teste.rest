@@ -1,7 +1,8 @@
-PUT  http://localhost:3000/api/update
+PUT  http://localhost:3000/api/createChat
 Content-Type: application/json
 
 {
-    "phone":23232323,
-    "email":"luiz@gmail.tercio"
+    "phone2":41995524777,
+    "phone1":995524727,
+    "chatId":23
 }

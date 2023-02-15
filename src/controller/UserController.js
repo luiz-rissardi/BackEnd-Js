@@ -22,6 +22,7 @@ class UserController {
             error400(res)("não foi possivel inserir um novo usuario, contate a equipe de desenvolvimento")
         }
     }
+
     async login(req, res) {
         try {
             const password = req.body.password;
@@ -62,35 +63,39 @@ class UserController {
             const phone1 = req.body.phone1;
             const phone2 = req.body.phone2;
             const chatId = req.body.chatId;
-            let chat1 = {
+            const chat1 = {
                 chatId,
-                person: phone2,
+                person: {
+                    phone:phone2,
+                    nome:""
+                },
                 dateDelet: null
-            }
-
-            let chat2 = {
+            } , chat2 = {
                 chatId,
-                person: phone1,
+                person:{
+                    phone:phone1,
+                    nome:""
+                },
                 dateDelet: null
             }
             const user1 = await this.getUser({phone:phone1}); 
-            const user2 = await this.getUser({phone:phone2}); 
+            const user2 = await this.getUser({phone:phone2});
+            chat1.person.nome = user1.nome 
+            chat2.person.nome = user2.nome 
             user1.chats.push(chat2);
             user2.chats.push(chat1);
-            console.log(user1)
             if (chat2) {
                 if(chat1){
                      await this.model.updateOne({ phone: phone1 }, {chats:user1.chats })
                      await this.model.updateOne({ phone: phone2 }, {chats:user2.chats })
                     sucess(res)("chat aberto com sucesso")
                 }else{
-                    error400(res)("o seu telefone esta incorreto")
+                    error400(res)("o seu telefone não foi encontrado")
                 }
             }else{
                 error400(res)("telefone do usuario não encontrado")
             }
         } catch (error) {
-            console.log(error)
             error500(res)("não foi possivel criar um novo chat entre em contato com a equipe de desenvolvedores")
         }
     }

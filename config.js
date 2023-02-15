@@ -5,10 +5,8 @@ function middleareSecurity(req,res,next){
     if(api_key === process.env.API_SECRET){
         next();
     }else{
-        res.status(500).json({
-            error:{
-                message:" chave de api invalida"
-            }
+        res.status(401).json({
+                message:"não autorizado"
         })
     }
 }
@@ -16,7 +14,6 @@ function middleareSecurity(req,res,next){
 const loginLimit = rateLimit({
     windowMs: 5 * 60 * 1000,
     max:5,
-    message:"limites de tentativas de login ultrapassadas tente novamente mais tarde!",
     store:new MemoryStore(),
     legacyHeaders: false,
     standardHeaders: true,
@@ -38,9 +35,17 @@ const CreateLimit = rateLimit({
     standardHeaders: true
 })
 
+const createChatsLimit = rateLimit({
+    windowMs:3 * 60 * 1000,
+    max:10,
+    legacyHeaders: false,
+    standardHeaders: true
+})
+
 export {
     middleareSecurity,
     loginLimit,
     UpadteLimit,
-    CreateLimit
+    CreateLimit,
+    createChatsLimit
 }
