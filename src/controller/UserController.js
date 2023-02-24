@@ -80,10 +80,10 @@ class UserController {
             }
             const user1 = await this.getUser({phone:phone1}); 
             const user2 = await this.getUser({phone:phone2});
-            chat1.person.nome = user1.nome 
-            chat2.person.nome = user2.nome 
-            user1.chats.push(chat2);
-            user2.chats.push(chat1);
+            chat1.person.nome = user2.nome 
+            chat2.person.nome = user1.nome 
+            user1.chats.push(chat1);
+            user2.chats.push(chat2);
             if (chat2) {
                 if(chat1){
                      await this.model.updateOne({ phone: phone1 }, {chats:user1.chats })
