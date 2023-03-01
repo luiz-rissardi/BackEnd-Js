@@ -1,8 +1,0 @@
-PUT  http://localhost:3000/api/createChat
-Content-Type: application/json
-
-{
-    "phone2":41995524777,
-    "phone1":995524727,
-    "chatId":23
-}
