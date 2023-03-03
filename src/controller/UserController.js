@@ -88,7 +88,7 @@ class UserController {
                 if(chat1){
                      await this.model.updateOne({ phone: phone1 }, {chats:user1.chats })
                      await this.model.updateOne({ phone: phone2 }, {chats:user2.chats })
-                    sucess(res)(user1)
+                     sucess(res)(user1)
                 }else{
                     error400(res)("o seu telefone não foi encontrado")
                 }
